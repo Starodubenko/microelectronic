@@ -1,5 +1,7 @@
 package com.epam.star.microelectronic.entity;
 
+import java.math.BigDecimal;
+
 public abstract class Device {
 
     public enum ScMaterial{
@@ -7,14 +9,14 @@ public abstract class Device {
     }
 
     private ScMaterial semiconductorMaterial;
-    protected int price;
+    protected BigDecimal price;
 
     protected Device(ScMaterial semiconductorMaterial, int price) {
         this.semiconductorMaterial = semiconductorMaterial;
-        this.price = price;
+        this.price = new BigDecimal(price);
     }
 
-    public int getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 }

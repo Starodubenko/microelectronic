@@ -1,12 +1,15 @@
 package com.epam.star.microelectronic.entity;
 
-public class Resister extends Device {
+import java.math.BigDecimal;
+
+public class Resistor extends Device {
+
     int current;
     int voltage;
     int resistance;
     int power;
 
-    public Resister(ScMaterial semiconductorMaterial, int current, int voltage, int resistance, int power, int price) {
+    public Resistor(ScMaterial semiconductorMaterial, int current, int voltage, int resistance, int power, int price) {
         super(semiconductorMaterial, price);
         this.current = current;
         this.voltage = voltage;
@@ -14,13 +17,13 @@ public class Resister extends Device {
         this.power = power;
     }
 
-    public int getPrice() {
+    public java.math.BigDecimal getPrice() {
         return price;
     }
 
     @Override
     public String toString() {
-        return " |Resister{" +
+        return " |Resistor{" +
                 "current=" + current +
                 ", voltage=" + voltage +
                 ", resistance=" + resistance +

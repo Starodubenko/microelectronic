@@ -1,17 +1,56 @@
 package com.epam.star.microelectronic.main;
 
+import com.epam.star.microelectronic.builder.*;
 import com.epam.star.microelectronic.entity.*;
 //This project emulate process of creating microelements, and put them on the board
 public class Main {
     public static void main(String[] args) {
         Board board = new Board(100, 100);
 
-        Transistor transistor1 = new Transistor(Device.ScMaterial.SILICON,2,3,20);
-        Transistor transistor2 = new Transistor(Device.ScMaterial.SILICON,2,3,20);
+        Transistor transistor1 = new TransistorBuilder()
+                .SemiconductorMaterial(Device.ScMaterial.SILICON)
+                .BaseCurrent(2)
+                .GainCoefficient(3)
+                .Key(false)
+                .Price(20)
+                .bildTransistor();
 
-        Chip chip = new Chip(Device.ScMaterial.SILICON,10,100,3, Chip.Type.ANALOG,5,10);
+        Transistor transistor2 = new TransistorBuilder()
+                .SemiconductorMaterial(Device.ScMaterial.SILICON)
+                .BaseCurrent(2)
+                .GainCoefficient(3)
+                .Key(false)
+                .Price(20)
+                .bildTransistor();
 
-        Diod diod = new Diod(Device.ScMaterial.SILICON,2,3, Diod.Construction.LIGHT_ELEMENT,true,30);
+        Chip chip = new ChipBuilder()
+                .DegreeIndegration(100)
+                .GainCoefficient(3)
+                .MaxVoltage(5)
+                .SemiconductorMaterial(Device.ScMaterial.SILICON)
+                .PinCount(10)
+                .Type(Chip.Type.ANALOG)
+                .Price(90)
+                .buildChip();
+
+        Diod diod = new DiodBuilder()
+                .SemiconductorMaterial(Device.ScMaterial.SILICON)
+                .DirectMaxCurrent(2)
+                .BackMaxVoltage(3)
+                .Construction(Diod.Construction.LIGHT_ELEMENT)
+                .Position(true)
+                .Price(30)
+                .buildDiod();
+
+        Resistor resistor = new ResistorBuilder()
+                .MaxCurrent(2)
+                .MAxVoltage(15)
+                .MaxPower(5)
+                .Resistance(15)
+                .Price(5)
+                .setSemiconductorMaterial(Device.ScMaterial.MANGANIN)
+                .buidResisror();
+
 
         System.out.println("=========================TRANSISTOR==================================");
         board.estaplishElement(transistor1);

@@ -1,5 +1,6 @@
 package com.epam.star.microelectronic.entity;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,10 +19,10 @@ public class Board {
         devices.add(device);
     }
 
-    public int totalSummElements(){
-        int totalSumm = 0;
+    public BigDecimal totalSummElements(){
+        BigDecimal totalSumm = new BigDecimal(0);
         for (Device s : devices) {
-            totalSumm += s.getPrice();
+            totalSumm = totalSumm.add(s.getPrice());
         }
         return totalSumm;
     }

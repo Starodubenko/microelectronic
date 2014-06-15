@@ -11,28 +11,28 @@ public class Diod extends Device {
         }
     }
 
-    int directMaxI;
-    int backMaxU;
+    int directMaxCurrent;
+    int backMaxVoltage;
     boolean position;
     Construction construction;
 
-    public Diod(ScMaterial semiconductorMaterial, int directMaxI, int backMaxU, Construction construction, boolean position, int price) {
+    public Diod(ScMaterial semiconductorMaterial, int directMaxCurrent, int backMaxVoltage, Construction construction, boolean position, int price) {
         super(semiconductorMaterial,price);
-        this.directMaxI = directMaxI;
-        this.backMaxU = backMaxU;
+        this.directMaxCurrent = directMaxCurrent;
+        this.backMaxVoltage = backMaxVoltage;
         this.construction = construction;
         this.position = position;
     }
 
-    public int getPrice() {
+    public java.math.BigDecimal getPrice() {
         return price;
     }
 
     @Override
     public String toString() {
         return " |Diod{" +
-                "directMaxI=" + directMaxI +
-                ", backMaxU=" + backMaxU +
+                "directMaxCurrent=" + directMaxCurrent +
+                ", backMaxVoltage=" + backMaxVoltage +
                 ", position=" + position +
                 ", construction='" + construction + '\'' +
                 ", price='" + price + '\'' +

@@ -1,20 +1,22 @@
 package com.epam.star.microelectronic.entity;
 
 public class Transistor extends Device {
-    private int baseI;
-    private int col_emitI;
-    private int gainCoefficient;
-    private boolean key = false;
 
-    public Transistor(ScMaterial semiconductorMaterial, int baseI, int gainCoefficient, int price) {
+    private int baseCurrent;
+    private int col_emitCurrent;
+    private int gainCoefficient;
+    private boolean key;
+
+    public Transistor(ScMaterial semiconductorMaterial, int baseCurrent, int gainCoefficient, boolean key, int price) {
         super(semiconductorMaterial, price);
-        this.baseI = baseI;
+        this.baseCurrent = baseCurrent;
         this.gainCoefficient = gainCoefficient;
-        col_emitI = baseI * gainCoefficient;
+        this.key = key;
+        col_emitCurrent = baseCurrent * gainCoefficient;
     }
 
     public String strengthing() {
-        return "Otput currient {col_emitI} = " + baseI + "*" + gainCoefficient;
+        return "Otput currient {col_emitCurrent} = " + baseCurrent + "*" + gainCoefficient;
     }
 
     public String keySwitch(boolean key) {
@@ -25,8 +27,8 @@ public class Transistor extends Device {
     @Override
     public String toString() {
         return " |Transistor{" +
-                "baseI=" + baseI +
-                ", col_emitI=" + col_emitI +
+                "baseCurrent=" + baseCurrent +
+                ", col_emitCurrent=" + col_emitCurrent +
                 ", gainCoefficient=" + gainCoefficient +
                 ", key=" + key +
                 ", price=" + price +

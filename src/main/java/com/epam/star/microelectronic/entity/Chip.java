@@ -15,15 +15,15 @@ public class Chip extends Device {
     private int degreeIndegration;
     private int gainCoefficient;
     private Type type;
-    private int maxU;
+    private int maxVoltage;
 
-    public Chip(ScMaterial semiconductorMaterial, int pinCount, int degreeIndegration, int gainCoefficient, Type type, int maxU, int price) {
+    public Chip(ScMaterial semiconductorMaterial, int pinCount, int degreeIndegration, int gainCoefficient, Type type, int maxVoltage, int price) {
         super(semiconductorMaterial, price);
         this.pinCount = pinCount;
         this.degreeIndegration = degreeIndegration;
         this.gainCoefficient = gainCoefficient;
         this.type = type;
-        this.maxU = maxU;
+        this.maxVoltage = maxVoltage;
     }
 
     @Override
@@ -33,13 +33,13 @@ public class Chip extends Device {
                 ", degreeIndegration=" + degreeIndegration +
                 ", gainCoefficient=" + gainCoefficient +
                 ", type=" + type +
-                ", maxU=" + maxU +
+                ", maxVoltage=" + maxVoltage +
                 ", price=" + price +
                 '}';
     }
 
     public String strangthingSignal() {
-        return "Signal " + maxU + "V was strengthened in " + gainCoefficient + " times";
+        return "Signal " + maxVoltage + "V was strengthened in " + gainCoefficient + " times";
     }
 
     public String dataProcessing() {
