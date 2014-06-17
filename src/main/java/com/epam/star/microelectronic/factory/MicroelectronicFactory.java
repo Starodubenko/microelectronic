@@ -10,10 +10,6 @@ public  class MicroelectronicFactory {
 
     private final static Random rnd = new Random();
 
-    public MicroelectronicFactory() {
-
-    }
-
     public List<Device> createDevices(int count, Device.DevicesType... deviceType){
 
         List<Device> deviceList = new ArrayList<>();
