@@ -19,20 +19,20 @@ public  class MicroelectronicFactory {
            String nameDevise = deviceType[rnd.nextInt(deviceType.length)].name();
 
             switch (nameDevise) {
-                case "DIOD": {device = diodFactory();deviceList.add(device);}
+                case "DIOD": {device = createDiod();deviceList.add(device);}
                     break;
-                case "TRANSISTOR": {device = transistorFactory();deviceList.add(device);}
+                case "TRANSISTOR": {device = createTransistor();deviceList.add(device);}
                     break;
-                case "CHIP": {device =  chipFactory();deviceList.add(device);}
+                case "CHIP": {device =  createChip();deviceList.add(device);}
                     break;
-                case "RESISTOR": {device = resistorFactory();deviceList.add(device);}
+                case "RESISTOR": {device = createResistor();deviceList.add(device);}
                     break;
             }
         }
         return deviceList;
     }
 
-    private Diod diodFactory() {
+    private Diod createDiod() {
 
         Device.ScMaterial material = Device.ScMaterial.values()[rnd.nextInt(Device.ScMaterial.values().length)];
         Diod.Construction construction = Diod.Construction.values()[rnd.nextInt(Diod.Construction.values().length)];
@@ -47,7 +47,7 @@ public  class MicroelectronicFactory {
     }
 
 
-    private Chip chipFactory() {
+    private Chip createChip() {
 
         Device.ScMaterial material = Device.ScMaterial.values()[rnd.nextInt(Device.ScMaterial.values().length)];
         Chip.Type type = Chip.Type.values()[rnd.nextInt(Chip.Type.values().length)];
@@ -63,7 +63,7 @@ public  class MicroelectronicFactory {
     }
 
 
-    private Resistor resistorFactory() {
+    private Resistor createResistor() {
 
         Device.ScMaterial material = Device.ScMaterial.values()[rnd.nextInt(Device.ScMaterial.values().length)];
         int price = rnd.nextInt(10)+1;
@@ -77,7 +77,7 @@ public  class MicroelectronicFactory {
         return resistor;
     }
 
-    private Transistor transistorFactory(){
+    private Transistor createTransistor(){
 
         Device.ScMaterial material = Device.ScMaterial.values()[rnd.nextInt(Device.ScMaterial.values().length)];
         int baseCurrent = rnd.nextInt(5)+1;
