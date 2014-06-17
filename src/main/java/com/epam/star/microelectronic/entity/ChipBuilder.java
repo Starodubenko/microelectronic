@@ -1,7 +1,4 @@
-package com.epam.star.microelectronic.builder;
-
-import com.epam.star.microelectronic.entity.Chip;
-import com.epam.star.microelectronic.entity.Device;
+package com.epam.star.microelectronic.entity;
 
 public class ChipBuilder {
 

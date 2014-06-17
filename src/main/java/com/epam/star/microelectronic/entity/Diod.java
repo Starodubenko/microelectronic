@@ -3,7 +3,7 @@ package com.epam.star.microelectronic.entity;
 public class Diod extends Device {
 
     public enum Construction{
-        ZENER_DIOD, VARICAP,LIGHT_ELEMENT,PHOTODIODE;
+        ZENER_DIOD, VARICAP,LIGHT_ELEMENT,PHOTODIODE, construction;
 
         @Override
         public String toString() {

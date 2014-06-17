@@ -4,12 +4,8 @@ import java.math.BigDecimal;
 
 public abstract class Device {
 
-    public enum ScMaterial{
-        SILICON,GERMANIUM,PALLADIUM,MANGANIN
-    }
-
-    private ScMaterial semiconductorMaterial;
     protected BigDecimal price;
+    private ScMaterial semiconductorMaterial;
 
     protected Device(ScMaterial semiconductorMaterial, int price) {
         this.semiconductorMaterial = semiconductorMaterial;
@@ -18,5 +14,13 @@ public abstract class Device {
 
     public BigDecimal getPrice() {
         return price;
+    }
+
+    public enum ScMaterial {
+        SILICON, GERMANIUM, PALLADIUM, MANGANIN
+    }
+
+    public enum DevicesType {
+        RESISTOR, TRANSISTOR, DIOD, CHIP
     }
 }

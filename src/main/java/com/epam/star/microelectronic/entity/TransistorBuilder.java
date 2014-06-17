@@ -1,7 +1,4 @@
-package com.epam.star.microelectronic.builder;
-
-import com.epam.star.microelectronic.entity.Device;
-import com.epam.star.microelectronic.entity.Transistor;
+package com.epam.star.microelectronic.entity;
 
 public class TransistorBuilder {
 

@@ -15,8 +15,14 @@ public class Board {
         this.width = width;
     }
 
-    public void estaplishElement (Device device) {
-        devices.add(device);
+    public void estaplishElement (Device... device) {
+        for (Device device1 : device) {
+            devices.add(device1);
+        }
+    }
+
+    public void estaplishElements (List<Device> device) {
+       this.devices = device;
     }
 
     public BigDecimal totalSummElements(){
