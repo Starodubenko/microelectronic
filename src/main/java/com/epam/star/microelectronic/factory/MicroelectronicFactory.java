@@ -6,9 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class MicroelectronicFactory {
+public  class MicroelectronicFactory {
 
-    List<Device> deviceList = new ArrayList<>();
     private final static Random rnd = new Random();
 
     public MicroelectronicFactory() {
@@ -16,6 +15,8 @@ public class MicroelectronicFactory {
     }
 
     public List<Device> createDevices(int count, Device.DevicesType... deviceType){
+
+        List<Device> deviceList = new ArrayList<>();
         Device device;
 
         for (int i = 0; i<count; i++){
