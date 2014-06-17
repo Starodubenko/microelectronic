@@ -12,6 +12,31 @@ public class Diod extends Device {
     }
 
     int directMaxCurrent;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Diod diod = (Diod) o;
+
+        if (backMaxVoltage != diod.backMaxVoltage) return false;
+        if (directMaxCurrent != diod.directMaxCurrent) return false;
+        if (position != diod.position) return false;
+        if (construction != diod.construction) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = directMaxCurrent;
+        result = 31 * result + backMaxVoltage;
+        result = 31 * result + (position ? 1 : 0);
+        result = 31 * result + construction.hashCode();
+        return result;
+    }
+
     int backMaxVoltage;
     boolean position;
     Construction construction;

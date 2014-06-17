@@ -22,6 +22,31 @@ public class Resistor extends Device {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Resistor resistor = (Resistor) o;
+
+        if (current != resistor.current) return false;
+        if (power != resistor.power) return false;
+        if (resistance != resistor.resistance) return false;
+        if (voltage != resistor.voltage) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = current;
+        result = 31 * result + voltage;
+        result = 31 * result + resistance;
+        result = 31 * result + power;
+        return result;
+    }
+
+    @Override
+
     public String toString() {
         return " |Resistor{" +
                 "current=" + current +

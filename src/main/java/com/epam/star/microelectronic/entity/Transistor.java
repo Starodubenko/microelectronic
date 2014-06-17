@@ -5,6 +5,31 @@ public class Transistor extends Device {
     private int baseCurrent;
     private int col_emitCurrent;
     private int gainCoefficient;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Transistor that = (Transistor) o;
+
+        if (baseCurrent != that.baseCurrent) return false;
+        if (col_emitCurrent != that.col_emitCurrent) return false;
+        if (gainCoefficient != that.gainCoefficient) return false;
+        if (key != that.key) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = baseCurrent;
+        result = 31 * result + col_emitCurrent;
+        result = 31 * result + gainCoefficient;
+        result = 31 * result + (key ? 1 : 0);
+        return result;
+    }
+
     private boolean key;
 
     public Transistor(ScMaterial semiconductorMaterial, int baseCurrent, int gainCoefficient, boolean key, int price) {

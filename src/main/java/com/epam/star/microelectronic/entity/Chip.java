@@ -27,7 +27,34 @@ public class Chip extends Device {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Chip chip = (Chip) o;
+
+        if (degreeIndegration != chip.degreeIndegration) return false;
+        if (gainCoefficient != chip.gainCoefficient) return false;
+        if (maxVoltage != chip.maxVoltage) return false;
+        if (pinCount != chip.pinCount) return false;
+        if (type != chip.type) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = pinCount;
+        result = 31 * result + degreeIndegration;
+        result = 31 * result + gainCoefficient;
+        result = 31 * result + type.hashCode();
+        result = 31 * result + maxVoltage;
+        return result;
+    }
+
+    @Override
     public String toString() {
+
         return " |Chip{" +
                 "pinCount=" + pinCount +
                 ", degreeIndegration=" + degreeIndegration +

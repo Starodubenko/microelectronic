@@ -15,17 +15,42 @@ public class Board {
         this.width = width;
     }
 
-    public void estaplishElement (Device... device) {
+    public void estaplishElement(Device... device) {
         for (Device device1 : device) {
             devices.add(device1);
         }
     }
 
-    public void estaplishElements (List<Device> device) {
-       this.devices = device;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Board board = (Board) o;
+
+        if (length != board.length) return false;
+        if (width != board.width) return false;
+        if (!devices.equals(board.devices)) return false;
+        if (!name.equals(board.name)) return false;
+
+        return true;
     }
 
-    public BigDecimal totalSummElements(){
+    @Override
+    public int hashCode() {
+        int result = name.hashCode();
+        result = 31 * result + length;
+        result = 31 * result + width;
+        result = 31 * result + devices.hashCode();
+        return result;
+    }
+
+    public void estaplishElements(List<Device> device) {
+        this.devices = device;
+
+    }
+
+    public BigDecimal totalSummElements() {
         BigDecimal totalSumm = new BigDecimal(0);
         for (Device s : devices) {
             totalSumm = totalSumm.add(s.getPrice());
@@ -37,12 +62,12 @@ public class Board {
     public String toString() {
         String elements = "";
         for (Device s : devices) {
-            elements = elements + s.toString() +"\n";
+            elements = elements + s.toString() + "\n";
         }
         return "Board{" +
                 "length=" + length +
                 ", width=" + width +
-                    ", devices:"+ "\n" + elements +
+                ", devices:" + "\n" + elements +
                 '}';
     }
 }
