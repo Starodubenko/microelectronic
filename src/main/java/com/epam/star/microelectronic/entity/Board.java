@@ -37,9 +37,7 @@ public class Board implements Cloneable {
     }
 
     public void deleteElement(int index){
-        List<Device> remmovedArray = new ArrayList<Device>(devices);
-            remmovedArray.remove(index);
-        devices = remmovedArray;
+        devices.remove(index);
     }
 
     public void estaplishElement(Device... device) {
