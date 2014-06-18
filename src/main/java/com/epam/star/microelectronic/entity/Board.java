@@ -4,15 +4,42 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Board {
-    String name;
-    int length;
-    int width;
-    List<Device> devices = new ArrayList<Device>();
+public class Board implements Cloneable {
+    private String name;
+    private int length;
+    private int width;
+    private List<Device> devices = new ArrayList<Device>();
 
     public Board(int length, int width) {
         this.length = length;
         this.width = width;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
+
+    public Board createCopy (){
+        Board copy = null;
+        try {
+            copy = (Board)super.clone();
+            copy.name = new String(name);
+            copy.devices = new ArrayList<>(devices);
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+        return copy;
+    }
+
+    public void deleteElement(int index){
+        List<Device> remmovedArray = new ArrayList<Device>(devices);
+            remmovedArray.remove(index);
+        devices = remmovedArray;
     }
 
     public void estaplishElement(Device... device) {
@@ -64,7 +91,7 @@ public class Board {
         for (Device s : devices) {
             elements = elements + s.toString() + "\n";
         }
-        return "Board{" +
+        return  name + " {" +
                 "length=" + length +
                 ", width=" + width +
                 ", devices:" + "\n" + elements +
