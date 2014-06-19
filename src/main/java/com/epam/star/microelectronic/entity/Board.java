@@ -2,13 +2,15 @@ package com.epam.star.microelectronic.entity;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Board implements Cloneable {
+    
+    public List<Device> devices = new ArrayList<Device>();
     private String name;
     private int length;
     private int width;
-    private List<Device> devices = new ArrayList<Device>();
 
     public Board(int length, int width) {
         this.length = length;
@@ -24,23 +26,32 @@ public class Board implements Cloneable {
         return super.clone();
     }
 
-    public Board createCopy (){
+    public Board createCopy() {
         Board copy = null;
         try {
-            copy = (Board)super.clone();
-            copy.name = new String(name);
-            copy.devices = new ArrayList<>(devices);
+            copy = (Board) super.clone();
+            copy.devices = totalCloneDevicesList(devices);
         } catch (CloneNotSupportedException e) {
             e.printStackTrace();
         }
         return copy;
     }
 
-    public void deleteElement(int index){
+    private List<Device> totalCloneDevicesList(List<Device> devices) {
+
+        List<Device> newList = new ArrayList<>();
+
+        for (Device device : devices) {
+            newList.add(device);
+        }
+        return newList;
+    }
+
+    public void deleteElement(int index) {
         devices.remove(index);
     }
 
-    public void estaplishElement(Device... device) {
+    public void establishElement(Device... device) {
         for (Device device1 : device) {
             devices.add(device1);
         }
@@ -89,7 +100,7 @@ public class Board implements Cloneable {
         for (Device s : devices) {
             elements = elements + s.toString() + "\n";
         }
-        return  name + " {" +
+        return name + " {" +
                 "length=" + length +
                 ", width=" + width +
                 ", devices:" + "\n" + elements +

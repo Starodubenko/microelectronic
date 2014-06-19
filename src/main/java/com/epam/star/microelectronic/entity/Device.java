@@ -12,8 +12,15 @@ public abstract class Device {
         this.price = new BigDecimal(price);
     }
 
+    protected Device() {
+    }
+
     public BigDecimal getPrice() {
         return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = new BigDecimal(price);
     }
 
     public enum ScMaterial {
@@ -23,4 +30,6 @@ public abstract class Device {
     public enum DevicesType {
         RESISTOR, TRANSISTOR, DIOD, CHIP
     }
+
+
 }

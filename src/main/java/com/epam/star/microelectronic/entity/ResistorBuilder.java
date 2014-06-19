@@ -2,12 +2,12 @@ package com.epam.star.microelectronic.entity;
 
 public class ResistorBuilder {
 
-    private Device.ScMaterial semiconductorMaterial;
     protected int price;
     int maxCurrent;
     int maxVoltage;
     int resistance;
     int maxPower;
+    private Device.ScMaterial semiconductorMaterial;
 
     public ResistorBuilder() {
     }
@@ -42,7 +42,7 @@ public class ResistorBuilder {
         return this;
     }
 
-    public Resistor buidResisror(){
-        return new Resistor(semiconductorMaterial,maxCurrent,maxVoltage,resistance,maxPower,price);
+    public Resistor buidResisror() {
+        return new Resistor(semiconductorMaterial, maxCurrent, maxVoltage, resistance, maxPower, price);
     }
 }

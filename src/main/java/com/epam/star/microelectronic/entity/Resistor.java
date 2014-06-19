@@ -4,10 +4,10 @@ import java.math.BigDecimal;
 
 public class Resistor extends Device {
 
-    int current;
-    int voltage;
-    int resistance;
-    int power;
+    private int current;
+    private int voltage;
+    private int resistance;
+    private int power;
 
     public Resistor(ScMaterial semiconductorMaterial, int current, int voltage, int resistance, int power, int price) {
         super(semiconductorMaterial, price);

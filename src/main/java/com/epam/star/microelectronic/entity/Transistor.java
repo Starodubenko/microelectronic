@@ -5,6 +5,15 @@ public class Transistor extends Device {
     private int baseCurrent;
     private int col_emitCurrent;
     private int gainCoefficient;
+    private boolean key;
+
+    public Transistor(ScMaterial semiconductorMaterial, int baseCurrent, int gainCoefficient, boolean key, int price) {
+        super(semiconductorMaterial, price);
+        this.baseCurrent = baseCurrent;
+        this.gainCoefficient = gainCoefficient;
+        this.key = key;
+        col_emitCurrent = baseCurrent * gainCoefficient;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -28,16 +37,6 @@ public class Transistor extends Device {
         result = 31 * result + gainCoefficient;
         result = 31 * result + (key ? 1 : 0);
         return result;
-    }
-
-    private boolean key;
-
-    public Transistor(ScMaterial semiconductorMaterial, int baseCurrent, int gainCoefficient, boolean key, int price) {
-        super(semiconductorMaterial, price);
-        this.baseCurrent = baseCurrent;
-        this.gainCoefficient = gainCoefficient;
-        this.key = key;
-        col_emitCurrent = baseCurrent * gainCoefficient;
     }
 
     public String strengthing() {

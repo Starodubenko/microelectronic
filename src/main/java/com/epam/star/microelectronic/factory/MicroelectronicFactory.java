@@ -2,37 +2,43 @@ package com.epam.star.microelectronic.factory;
 
 import com.epam.star.microelectronic.entity.*;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
-public  class MicroelectronicFactory {
+public class MicroelectronicFactory {
 
     private final static Random rnd = new Random();
 
-    public List<Device> createDevices(int count, Device.DevicesType... deviceType){
+    public static Board createDevices(int count, Device.DevicesType... deviceType){
 
-        List<Device> deviceList = new ArrayList<>();
+        Board newBoard = createBoard();
         Device device;
 
         for (int i = 0; i<count; i++){
            String nameDevise = deviceType[rnd.nextInt(deviceType.length)].name();
 
             switch (nameDevise) {
-                case "DIOD": {device = createDiod();deviceList.add(device);}
+                case "DIOD": {device = createDiod();newBoard.establishElement(device);}
                     break;
-                case "TRANSISTOR": {device = createTransistor();deviceList.add(device);}
+                case "TRANSISTOR": {device = createTransistor();newBoard.establishElement(device);}
                     break;
-                case "CHIP": {device =  createChip();deviceList.add(device);}
+                case "CHIP": {device =  createChip();newBoard.establishElement(device);}
                     break;
-                case "RESISTOR": {device = createResistor();deviceList.add(device);}
+                case "RESISTOR": {device = createResistor();newBoard.establishElement(device);}
                     break;
             }
         }
-        return deviceList;
+        return newBoard;
     }
 
-    private Diod createDiod() {
+    private static Board createBoard(){
+        int length = rnd.nextInt(300)+10;
+        int width = rnd.nextInt(300)+10;;
+        Board board = new Board(length,width);
+
+        return board;
+    }
+
+    private static Diod createDiod() {
 
         Device.ScMaterial material = Device.ScMaterial.values()[rnd.nextInt(Device.ScMaterial.values().length)];
         Diod.Construction construction = Diod.Construction.values()[rnd.nextInt(Diod.Construction.values().length)];
@@ -47,7 +53,7 @@ public  class MicroelectronicFactory {
     }
 
 
-    private Chip createChip() {
+    private static Chip createChip() {
 
         Device.ScMaterial material = Device.ScMaterial.values()[rnd.nextInt(Device.ScMaterial.values().length)];
         Chip.Type type = Chip.Type.values()[rnd.nextInt(Chip.Type.values().length)];
@@ -63,7 +69,7 @@ public  class MicroelectronicFactory {
     }
 
 
-    private Resistor createResistor() {
+    private static Resistor createResistor() {
 
         Device.ScMaterial material = Device.ScMaterial.values()[rnd.nextInt(Device.ScMaterial.values().length)];
         int price = rnd.nextInt(10)+1;
@@ -77,7 +83,7 @@ public  class MicroelectronicFactory {
         return resistor;
     }
 
-    private Transistor createTransistor(){
+    private static Transistor createTransistor(){
 
         Device.ScMaterial material = Device.ScMaterial.values()[rnd.nextInt(Device.ScMaterial.values().length)];
         int baseCurrent = rnd.nextInt(5)+1;

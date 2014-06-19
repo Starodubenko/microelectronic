@@ -2,16 +2,18 @@ package com.epam.star.microelectronic.entity;
 
 public class Diod extends Device {
 
-    public enum Construction{
-        ZENER_DIOD, VARICAP,LIGHT_ELEMENT,PHOTODIODE, construction;
+    private int directMaxCurrent;
+    private int backMaxVoltage;
+    private boolean position;
+    private Construction construction;
 
-        @Override
-        public String toString() {
-            return name().toLowerCase();
-        }
+    public Diod(ScMaterial semiconductorMaterial, int directMaxCurrent, int backMaxVoltage, Construction construction, boolean position, int price) {
+        super(semiconductorMaterial, price);
+        this.directMaxCurrent = directMaxCurrent;
+        this.backMaxVoltage = backMaxVoltage;
+        this.construction = construction;
+        this.position = position;
     }
-
-    int directMaxCurrent;
 
     @Override
     public boolean equals(Object o) {
@@ -37,18 +39,6 @@ public class Diod extends Device {
         return result;
     }
 
-    int backMaxVoltage;
-    boolean position;
-    Construction construction;
-
-    public Diod(ScMaterial semiconductorMaterial, int directMaxCurrent, int backMaxVoltage, Construction construction, boolean position, int price) {
-        super(semiconductorMaterial,price);
-        this.directMaxCurrent = directMaxCurrent;
-        this.backMaxVoltage = backMaxVoltage;
-        this.construction = construction;
-        this.position = position;
-    }
-
     public java.math.BigDecimal getPrice() {
         return price;
     }
@@ -68,5 +58,14 @@ public class Diod extends Device {
         if (position) {
             return "Diod is condacting current";
         } else return "Diod isn't condacting current";
+    }
+
+    public enum Construction {
+        ZENER_DIOD, VARICAP, LIGHT_ELEMENT, PHOTODIODE, construction;
+
+        @Override
+        public String toString() {
+            return name().toLowerCase();
+        }
     }
 }

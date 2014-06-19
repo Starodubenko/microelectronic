@@ -2,12 +2,12 @@ package com.epam.star.microelectronic.entity;
 
 public class DiodBuilder {
 
-    private Device.ScMaterial semiconductorMaterial;
     protected int price;
     int directMaxCurrent;
     int backMaxVoltage;
     boolean position;
     Diod.Construction construction;
+    private Device.ScMaterial semiconductorMaterial;
 
     public DiodBuilder() {
     }
@@ -42,7 +42,7 @@ public class DiodBuilder {
         return this;
     }
 
-    public Diod buildDiod(){
-        return new Diod(semiconductorMaterial, directMaxCurrent, backMaxVoltage,construction,position,price);
+    public Diod buildDiod() {
+        return new Diod(semiconductorMaterial, directMaxCurrent, backMaxVoltage, construction, position, price);
     }
 }

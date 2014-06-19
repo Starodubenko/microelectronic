@@ -2,8 +2,8 @@ package com.epam.star.microelectronic.entity;
 
 public class TransistorBuilder {
 
-    private Device.ScMaterial semiconductorMaterial;
     protected int price;
+    private Device.ScMaterial semiconductorMaterial;
     private int baseCurrent;
     private int gainCoefficient;
     private boolean key = false;
@@ -36,7 +36,7 @@ public class TransistorBuilder {
         return this;
     }
 
-    public Transistor bildTransistor(){
-        return new Transistor(semiconductorMaterial,baseCurrent,gainCoefficient,key,price);
+    public Transistor bildTransistor() {
+        return new Transistor(semiconductorMaterial, baseCurrent, gainCoefficient, key, price);
     }
 }

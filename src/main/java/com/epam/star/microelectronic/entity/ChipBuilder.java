@@ -2,8 +2,8 @@ package com.epam.star.microelectronic.entity;
 
 public class ChipBuilder {
 
-    private Device.ScMaterial semiconductorMaterial;
     protected int price;
+    private Device.ScMaterial semiconductorMaterial;
     private int pinCount;
     private int degreeIndegration;
     private int gainCoefficient;
@@ -48,7 +48,7 @@ public class ChipBuilder {
         return this;
     }
 
-    public Chip buildChip(){
-        return new Chip(semiconductorMaterial,pinCount,degreeIndegration,gainCoefficient,type,maxVoltage,price);
+    public Chip buildChip() {
+        return new Chip(semiconductorMaterial, pinCount, degreeIndegration, gainCoefficient, type, maxVoltage, price);
     }
 }
