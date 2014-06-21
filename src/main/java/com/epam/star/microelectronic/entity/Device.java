@@ -44,7 +44,7 @@ public abstract class Device implements Cloneable {
         SILICON, GERMANIUM, PALLADIUM, MANGANIN
     }
 
-    public enum DevicesType {
+    public enum Type {
         RESISTOR, TRANSISTOR, DIOD, CHIP
     }
 

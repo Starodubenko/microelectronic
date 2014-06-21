@@ -26,7 +26,7 @@ public class MicroelectronicFactory {
         }
     }
 
-    public static Board createDevices(int count, Device.DevicesType... deviceType) throws IOException {
+    public static Board createCompleteBoard(int count, Device.Type... deviceType) throws IOException {
 
 
         Board newBoard = createBoard();
