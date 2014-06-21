@@ -1,11 +1,33 @@
 package com.epam.star.microelectronic.entity;
 
+import java.util.Comparator;
+
 public class Diod extends Device {
 
+    public static final Comparator<Diod> CONTRUCTION_COMPARATOR = new Comparator<Diod>() {
+        @Override
+        public int compare(Diod o1, Diod o2) {
+            String s = o1.construction.name();
+            return s.compareTo(o2.construction.name());
+        }
+    };
     private int directMaxCurrent;
+    public static final Comparator<Diod> DIRECT_CURRENT_COMPARATOR = new Comparator<Diod>() {
+        @Override
+        public int compare(Diod o1, Diod o2) {
+            return o1.directMaxCurrent - o2.directMaxCurrent;
+        }
+    };
     private int backMaxVoltage;
+    public static final Comparator<Diod> BACK_VOLTAGE_COMPARATOR = new Comparator<Diod>() {
+        @Override
+        public int compare(Diod o1, Diod o2) {
+            return o1.backMaxVoltage - o2.backMaxVoltage;
+        }
+    };
     private boolean position;
     private Construction construction;
+
 
     public Diod(ScMaterial semiconductorMaterial, int directMaxCurrent, int backMaxVoltage, Construction construction, boolean position, int price) {
         super(semiconductorMaterial, price);
@@ -46,7 +68,8 @@ public class Diod extends Device {
     @Override
     public String toString() {
         return " |Diod{" +
-                "directMaxCurrent=" + directMaxCurrent +
+                "semiconductorMaterial=" + semiconductorMaterial +
+                ", directMaxCurrent=" + directMaxCurrent +
                 ", backMaxVoltage=" + backMaxVoltage +
                 ", position=" + position +
                 ", construction='" + construction + '\'' +

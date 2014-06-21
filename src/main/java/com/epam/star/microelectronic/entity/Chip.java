@@ -1,12 +1,33 @@
 package com.epam.star.microelectronic.entity;
 
+import java.util.Comparator;
+
 public class Chip extends Device {
 
+    public static final Comparator<Chip> TYPE_COMPARATOR = new Comparator<Chip>() {
+        @Override
+        public int compare(Chip o1, Chip o2) {
+            String s = o1.type.name();
+            return s.compareTo(o2.type.name());
+        }
+    };
     private int pinCount;
+    public static final Comparator<Chip> PIN_COUNT_COMPARATOR = new Comparator<Chip>() {
+        @Override
+        public int compare(Chip o1, Chip o2) {
+            return o1.pinCount - o2.pinCount;
+        }
+    };
     private int degreeIndegration;
     private int gainCoefficient;
     private Type type;
     private int maxVoltage;
+    public static final Comparator<Chip> VOLTAGE_COMPARATOR = new Comparator<Chip>() {
+        @Override
+        public int compare(Chip o1, Chip o2) {
+            return o1.maxVoltage - o2.maxVoltage;
+        }
+    };
 
     public Chip(ScMaterial semiconductorMaterial, int pinCount, int degreeIndegration, int gainCoefficient, Type type, int maxVoltage, int price) {
         super(semiconductorMaterial, price);
@@ -47,7 +68,8 @@ public class Chip extends Device {
     public String toString() {
 
         return " |Chip{" +
-                "pinCount=" + pinCount +
+                "semiconductorMaterial=" + semiconductorMaterial +
+                ", pinCount=" + pinCount +
                 ", degreeIndegration=" + degreeIndegration +
                 ", gainCoefficient=" + gainCoefficient +
                 ", type=" + type +

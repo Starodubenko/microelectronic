@@ -1,13 +1,37 @@
 package com.epam.star.microelectronic.entity;
 
-import java.math.BigDecimal;
+import java.util.Comparator;
 
 public class Resistor extends Device {
 
     private int current;
+    public static final Comparator<Resistor> CURRENT_COMPARATOR = new Comparator<Resistor>() {
+        @Override
+        public int compare(Resistor o1, Resistor o2) {
+            return o1.current - o2.current;
+        }
+    };
     private int voltage;
+    public static final Comparator<Resistor> VOLTAGE_COMPARATOR = new Comparator<Resistor>() {
+        @Override
+        public int compare(Resistor o1, Resistor o2) {
+            return o1.voltage - o2.voltage;
+        }
+    };
     private int resistance;
+    public static final Comparator<Resistor> RESISTANCE_COMPARATOR = new Comparator<Resistor>() {
+        @Override
+        public int compare(Resistor o1, Resistor o2) {
+            return o1.resistance - o2.resistance;
+        }
+    };
     private int power;
+    public static final Comparator<Resistor> POWER_COMPARATOR = new Comparator<Resistor>() {
+        @Override
+        public int compare(Resistor o1, Resistor o2) {
+            return o1.power - o2.power;
+        }
+    };
 
     public Resistor(ScMaterial semiconductorMaterial, int current, int voltage, int resistance, int power, int price) {
         super(semiconductorMaterial, price);
@@ -49,7 +73,8 @@ public class Resistor extends Device {
 
     public String toString() {
         return " |Resistor{" +
-                "current=" + current +
+                "semiconductorMaterial=" + semiconductorMaterial +
+                ", current=" + current +
                 ", voltage=" + voltage +
                 ", resistance=" + resistance +
                 ", power=" + power +

@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Board implements Cloneable {
-    
+
     public List<Device> devices = new ArrayList<Device>();
     private String name;
     private int length;
@@ -37,12 +37,12 @@ public class Board implements Cloneable {
         return copy;
     }
 
-    private List<Device> totalCloneDevicesList(List<Device> devices) {
+    private List<Device> totalCloneDevicesList(List<Device> devices) throws CloneNotSupportedException {
 
         List<Device> newList = new ArrayList<>();
 
         for (Device device : devices) {
-            newList.add(device);
+            newList.add((Device) device.clone());
         }
         return newList;
     }
