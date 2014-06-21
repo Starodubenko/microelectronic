@@ -23,7 +23,7 @@ public class Main {
         boardCopy.setName("SecondBoard");
         boardCopy.getDevices().get(1).setPrice(555);
         boardCopy.deleteElement(0);
-        LOGGER.info("boardCopy was created: {}", boardCopy);
+        LOGGER.info("board was copied: {}", boardCopy);
 
         Collections.sort(board.getDevices(), Device.PRICE_COMPARATOR);
         LOGGER.info("sort of the board was performed: {}", board);
