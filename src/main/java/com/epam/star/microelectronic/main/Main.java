@@ -21,11 +21,11 @@ public class Main {
 
         Board boardCopy = board.createCopy();
         boardCopy.setName("SecondBoard");
-        boardCopy.devices.get(1).setPrice(555);
+        boardCopy.getDevices().get(1).setPrice(555);
         boardCopy.deleteElement(0);
         LOGGER.info("boardCopy was created: {}", boardCopy);
 
-        Collections.sort(board.devices, Device.PRICE_COMPARATOR);
+        Collections.sort(board.getDevices(), Device.PRICE_COMPARATOR);
         LOGGER.info("sort of the board was performed: {}", board);
 
         LOGGER.info("tottal sum of the board was calculaded: {}",board.totalSummElements());

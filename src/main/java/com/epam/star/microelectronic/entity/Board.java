@@ -7,7 +7,7 @@ import java.util.List;
 
 public class Board implements Cloneable {
 
-    public List<Device> devices = new ArrayList<Device>();
+    private List<Device> devices = new ArrayList<Device>();
     private String name;
     private int length;
     private int width;
@@ -35,6 +35,10 @@ public class Board implements Cloneable {
             e.printStackTrace();
         }
         return copy;
+    }
+
+    public List<Device> getDevices() {
+        return devices;
     }
 
     private List<Device> totalCloneDevicesList(List<Device> devices) throws CloneNotSupportedException {
