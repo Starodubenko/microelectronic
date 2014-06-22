@@ -2,6 +2,7 @@ package com.epam.star.microelectronic.main;
 
 import com.epam.star.microelectronic.entity.*;
 import com.epam.star.microelectronic.factory.MicroelectronicFactory;
+import com.epam.star.microelectronic.util.DeviceSearcher;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -29,5 +30,11 @@ public class Main {
         LOGGER.info("sort of the board was performed: {}", board);
 
         LOGGER.info("tottal sum of the board was calculaded: {}",board.totalSummElements());
+
+        DeviceSearcher searcher = new DeviceSearcher(board.getDevices());
+
+        LOGGER.info("Search is coplete {}", searcher.deviceSearch(Device.Type.CHIP, Device.ScMaterial.MANGANIN,1,100));
+        LOGGER.info("Search is coplete {}", searcher.deviceSearch(Device.ScMaterial.MANGANIN,1,100));
+        LOGGER.info("Search is coplete {}", searcher.deviceSearch(Device.Type.CHIP));
     }
 }

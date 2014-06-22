@@ -4,6 +4,11 @@ import java.util.Comparator;
 
 public class Chip extends Device {
 
+    private int degreeIndegration;
+    private int gainCoefficient;
+    private Type type;
+    private int maxVoltage;
+    private int pinCount;
     public static final Comparator<Chip> TYPE_COMPARATOR = new Comparator<Chip>() {
         @Override
         public int compare(Chip o1, Chip o2) {
@@ -11,17 +16,12 @@ public class Chip extends Device {
             return s.compareTo(o2.type.name());
         }
     };
-    private int pinCount;
     public static final Comparator<Chip> PIN_COUNT_COMPARATOR = new Comparator<Chip>() {
         @Override
         public int compare(Chip o1, Chip o2) {
             return o1.pinCount - o2.pinCount;
         }
     };
-    private int degreeIndegration;
-    private int gainCoefficient;
-    private Type type;
-    private int maxVoltage;
     public static final Comparator<Chip> VOLTAGE_COMPARATOR = new Comparator<Chip>() {
         @Override
         public int compare(Chip o1, Chip o2) {

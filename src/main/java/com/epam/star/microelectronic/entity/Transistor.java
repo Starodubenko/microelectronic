@@ -5,27 +5,27 @@ import java.util.Comparator;
 public class Transistor extends Device {
 
     private int baseCurrent;
-    private static final Comparator<Transistor> BASE_COMPARATOR = new Comparator<Transistor>() {
-        @Override
-        public int compare(Transistor o1, Transistor o2) {
-            return o1.baseCurrent - o2.baseCurrent;
-        }
-    };
     private int col_emitCurrent;
+    private boolean key;
+    private int gainCoefficient;
     private static final Comparator<Transistor> COL_EMIT_CURRENT_COMPARATOR = new Comparator<Transistor>() {
         @Override
         public int compare(Transistor o1, Transistor o2) {
             return o1.col_emitCurrent - o2.col_emitCurrent;
         }
     };
-    private int gainCoefficient;
     private static final Comparator<Transistor> GAIN_COEFFICIENT_COMPARATOR = new Comparator<Transistor>() {
         @Override
         public int compare(Transistor o1, Transistor o2) {
             return o1.gainCoefficient - o2.gainCoefficient;
         }
     };
-    private boolean key;
+    private static final Comparator<Transistor> BASE_COMPARATOR = new Comparator<Transistor>() {
+        @Override
+        public int compare(Transistor o1, Transistor o2) {
+            return o1.baseCurrent - o2.baseCurrent;
+        }
+    };
 
     public Transistor(ScMaterial semiconductorMaterial, int baseCurrent, int gainCoefficient, boolean key, int price) {
         super(semiconductorMaterial, price);
